@@ -1,0 +1,7 @@
+Package name: MISEEM
+
+
+Developers:
+-----------
+To modify the package name, use the python script
+"change_package_version.py" in src/lib/scripts folder.

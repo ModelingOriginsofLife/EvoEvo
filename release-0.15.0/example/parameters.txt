@@ -1,0 +1,148 @@
+
+########################################################
+# PSEUDORANDOM NUMBERS GENERATOR
+########################################################
+
+SEED  188870
+
+
+########################################################
+# PARALLEL COMPUTING
+########################################################
+
+PARALLEL_COMPUTING  YES (YES, NO)
+
+
+########################################################
+# SIMULATION SCHEMES
+########################################################
+
+ENERGY_CONSTRAINTS     NO  (YES, NO)
+MEMBRANE_PERMEABILITY  NO  (YES, NO)
+METABOLIC_INHERITANCE  YES (YES, NO)
+ENZYMATIC_INHERITANCE  YES (YES, NO)
+CO_ENZYME_ACTIVITY     YES (YES, NO)
+
+SCORE_SCHEME         SUM (SUM, SUM_MINUS_DEV, COMBINATORIAL)
+SELECTION_THRESHOLD  0
+
+
+########################################################
+# SPACE
+########################################################
+
+WIDTH   32
+HEIGHT  32
+
+
+########################################################
+# OUTPUT
+########################################################
+
+EXPERIMENT_BACKUP_STEP   1000
+TREE_BACKUP_STEP         1000
+FIGURES_GENERATION_STEP  500
+
+
+########################################################
+# GENOME LEVEL
+########################################################
+
+METABOLITE_TAG_INITIAL_RANGE            UNIFORM 1 20
+BINDING_SIZE_TAG_INITIAL_RANGE          UNIFORM 1 20
+CO_ENZYME_TAG_INITIAL_RANGE             UNIFORM 1 20
+TRANSCRIPTION_FACTOR_TAG_INITIAL_RANGE  UNIFORM 1 20
+
+INITIAL_BINDING_WINDOW  0
+
+INITIAL_NUMBER_OF_NON_CODING_PEARLS            10
+INITIAL_NUMBER_OF_ENZYME_PEARLS                10
+INITIAL_NUMBER_OF_TRANSCRIPTION_FACTOR_PEARLS  10
+INITIAL_NUMBER_OF_BINDING_SITE_PEARLS          10
+INITIAL_NUMBER_OF_PROMOTER_PEARLS              10
+
+POINT_MUTATION_RATE  0.001
+DUPLICATION_RATE     0.001
+DELETION_RATE        0.001
+TRANSLOCATION_RATE   0.001
+INVERSION_RATE       0.001
+TRANSITION_RATE      0.001
+
+SUBSTRATE_TAG_MUTATION_SIZE             5
+PRODUCT_TAG_MUTATION_SIZE               5
+KM_MUTATION_SIZE                        0.01
+KCAT_MUTATION_SIZE                      0.01
+BINDING_SIZE_TAG_MUTATION_SIZE          5
+CO_ENZYME_TAG_MUTATION_SIZE             5
+TRANSCRIPTION_FACTOR_TAG_MUTATION_SIZE  5
+BASAL_EXPRESSION_LEVEL_MUTATION_SIZE    0.1
+
+MAXIMUM_GENOME_SIZE  10000
+
+
+########################################################
+# GENETIC REGULATION NETWORK LEVEL
+########################################################
+
+GENETIC_REGULATION_NETWORK_TIMESTEP  100
+
+HILL_FUNCTION_THETA       0.5
+HILL_FUNCTION_N           4
+PROTEIN_DEGRADATION_RATE  1
+
+
+########################################################
+# METABOLIC NETWORK LEVEL
+########################################################
+
+METABOLISM_TIMESTEP  100
+
+ESSENTIAL_METABOLITES_TOXICITY_THRESHOLD      1.0
+NON_ESSENTIAL_METABOLITES_TOXICITY_THRESHOLD  1.0
+
+INITIAL_METABOLITES_AMOUNT_IN_CELLS  0
+
+ENERGY_REACTION_COST_FACTOR  0
+ENERGY_PUMPING_COST          -0.001
+ENERGY_TRANSCRIPTION_COST    -0.001
+ENERGY_TOXICITY_THRESHOLD    100000000
+
+
+########################################################
+# CELL LEVEL
+########################################################
+
+DEATH_PROBABILITY  0.02
+
+VARIABLE_LIFESPAN  NO
+GOMPERTZ_LAW       1 20 0.01
+
+INITIAL_MEMBRANE_PERMEABILITY  0.001
+
+
+########################################################
+# POPULATION LEVEL
+########################################################
+
+MIGRATION_RATE  0
+HGT_RATE        0
+
+
+########################################################
+# ENVIRONMENT LEVEL
+########################################################
+
+ENVIRONMENT_INITIALIZATION_CYCLES    1
+ENVIRONMENT_SPECIES_TAG_RANGE        UNIFORM 10 10
+ENVIRONMENT_CONCENTRATION_RANGE      UNIFORM 10 10
+ENVIRONMENT_NUMBER_OF_SPECIES_RANGE  UNIFORM 1 1
+
+ENVIRONMENT_INTERACTION_SCHEME      INTERACTION (NO_INTERACTION/INTERACTION)
+ENVIRONMENT_RENEWAL_SCHEME          KEEP_MATTER (KEEP_MATTER/CLEAR_MATTER)
+ENVIRONMENT_VARIATION_SCHEME        PERIODIC (RANDOM/PERIODIC/CYCLIC)
+ENVIRONMENT_VARIATION_LOCALIZATION  GLOBAL (RANDOM/GLOBAL/CENTER)
+
+ENVIRONMENT_INTRODUCTION_RATE  1
+ENVIRONMENT_DIFFUSION_RATE     0.1
+ENVIRONMENT_DEGRADATION_RATE   0.1
+

@@ -1,0 +1,344 @@
+\listfiles
+\documentclass[10pt]{article}
+
+%-----------------------------------------------%
+% chargement des librairies de base %
+%-----------------------------------------------%
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais, english]{babel}
+\usepackage[babel=true]{csquotes}
+\usepackage{layout}
+\usepackage[left=2.5cm, top=2.5cm, right=2.5cm, bottom=2.5cm, nohead]{geometry}
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{fancybox}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{natbib}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[usenames, dvipsnames, svgnames, table]{xcolor}
+\usepackage[geometry]{ifsym}
+\usepackage{cmap}
+\usepackage{stmaryrd}
+\usepackage{tabularx}
+
+%--------------------------------%
+% definition des couleurs %
+%--------------------------------%
+\definecolor{noir}{rgb}{0,0,0}
+\definecolor{blanc}{rgb}{1,1,1}
+\definecolor{rouge}{rgb}{1, 0, 0}
+\definecolor{vert}{rgb}{0, 1, 0}
+\definecolor{vertsombre}{rgb}{0, 0.5, 0}
+\definecolor{bleu}{rgb}{0, 0, 1}
+\definecolor{gris}{rgb}{0.5, 0.5, 0.5}
+\definecolor{gris2}{rgb}{0.7, 0.7, 0.7}
+\definecolor{gris3}{rgb}{0.9, 0.9, 0.9}
+\definecolor{bleumac}{rgb}{0.2039216, 0.3294118, 0.5333333}
+
+%-----------------------------%
+% sélection du langage %
+%-----------------------------%
+\selectlanguage{english}
+
+%---------------------------------%
+% gestion des divers liens %
+%---------------------------------%
+\usepackage{hyperref}
+\hypersetup{
+    backref=true,    %permet d'ajouter des liens dans...
+    pagebackref=true,%...les bibliographies
+    hyperindex=true, %ajoute des liens dans les index.
+    colorlinks=true, %colorise les liens
+    breaklinks=true, %permet le retour à la ligne dans les liens trop longs
+    urlcolor=bleu, %couleur des hyperliens
+    linkcolor=bleu, %couleur des liens internes
+    citecolor=bleu, %couleur des ref
+    bookmarks=true, %crée des signets pour Acrobat
+    bookmarksopen=true,
+    pdffitwindow=true,
+    %si les signets Acrobat sont créés,
+    %les afficher complètement.
+    pdfauthor={Charles Rocabert},
+    pdftitle={Getting started with the integrated evolutionary model},
+    pdfsubject={Getting started with the integrated evolutionary model},
+    pdfcreator={Charles Rocabert (charles.rocabert@inria.fr)},
+    pdfkeywords={}
+    %sous Acrobat.
+}
+
+%---------------------------------------%
+% mise en forme des colonnes %
+%---------------------------------------%
+\setlength{\columnsep}{30pt}
+\numberwithin{equation}{section}
+
+%-----------------------------------------------------%
+% définition de l'environnement tablehere %
+%-----------------------------------------------------%
+\renewcommand{\textfraction}{0}
+\makeatletter
+\newenvironment{tablehere}
+{\def\@captype{table}}
+{}
+
+%------------------------------------------------------%
+% définition de l'environnement figurehere %
+%------------------------------------------------------%
+\newenvironment{figurehere}
+{\def\@captype{figure}}
+{}
+\makeatother
+
+%--------------------------------------%
+% mise en forme du glossaire %
+%--------------------------------------%
+\newcommand*{\glossfirstformat}[1]{\textsf{#1}}
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
+
+\renewcommand{\glsdisplayfirst}[4]{\glossfirstformat{#1#4}}
+\renewcommand*{\glsnamefont}{\sffamily}
+
+%---------------------------------%
+% paramètres de l'en-tête %
+%---------------------------------% 
+%\usepackage{fancyhdr}
+%\headsep = 20pt
+%\pagestyle{fancy}
+
+%---------------------------------%
+%                titre                 %
+%---------------------------------% 
+\title{Getting started with the integrated evolutionary model}
+\author{Charles Rocabert (charles.rocabert@inria.fr)}
+\date{\today}
+
+%----------------------------%
+% début du document %
+%----------------------------%
+\begin{document}
+
+\maketitle
+
+\newpage
+
+% table des matières %
+\tableofcontents
+
+\newpage
+
+%========================%
+%    SHORT INTRODUCTION      %
+%========================%
+\section{Short introduction}
+
+\subsection{The model}
+
+The \textit{integrated evolutionary model} includes the features described in the deliverable 2.7 of the EvoEvo project (\href{http://www.evoevo.eu/deliverable-2-7-specifications-of-the-integrated-evolutionary-model/}{http://www.evoevo.eu/deliverable-2-7-specifications-of-the-integrated-evolutionary-model/}):
+\begin{itemize}
+	\item[(A)] Each cell owns a circular single strand genome made of elements of 5 types: elements coding for enzymes catalyzing metabolic reactions (type E), elements coding for transcription factors (type TF), elements coding for binding sites (type BS), elements coding for promoters (type P), and non coding elements (type NC). At replication, the genome undergoes point mutations, but also large chromosomic rearrangements: duplications, large deletions, inversions, and translocations. The various types of mutation can modify existing genes, but also create new genes, delete some existing genes, modify the length of the intergenic regions, modify gene order...
+	\item[(B)] Each cell owns a genetic regulation network, regulating the evolution of transcription factor and enzyme concentrations during the life of the cell,
+	\item[(C)] Each cell also owns a metabolic network, defined by the whole set of enzymes produced by the cell. Some enzymes act as inflowing or outflowing pumps,
+	\item[(D)] A dynamic environment is displayed on a two dimensional toroidal grid, on which cells grow. The environment contains various metabolites at various concentrations, which diffuse and are degraded. Cells interact with the environment by pumping metabolites in or out, or by releasing their content at death. In the current version, the environment only contains metabolites (cells cannot exchange DNA or proteins).
+\end{itemize}
+
+\subsection{The source package}
+The source package is displayed as following:
+\begin{itemize}
+	\item The \texttt{src} folder contains the source code of the project,
+	\item The \texttt{example} folder contains a typical parameters file (default name : \texttt{parameters.txt}) used to create a new experiment. Parameters are described in \texttt{doc/parameters.html}. See the \texttt{README} file for a typical usage of the software,
+	\item The \texttt{doc} folder contains documentation on the model,
+	\item The \texttt{build} folder contains compilation products (binary executables being in \texttt{build/bin} folder),
+	\item The \texttt{cmake} folder contains compilation tools,
+	\item Instructions files (including \texttt{INSTALL} and \texttt{README} files).
+\end{itemize}
+
+\subsection{License}
+The software is distributed under the open source GNU General Public License\\(see \href{http://www.gnu.org/licenses/gpl-3.0.en.html}{http://www.gnu.org/licenses/gpl-3.0.en.html}).
+
+\subsection{Download}
+Release(s) of the \texttt{Integrated Evolutionary Model} can be downloaded at \href{http://www.evoevo.eu/softwares/}{http://www.evoevo.eu/softwares/}.
+
+\subsection{Contact}
+For any question about the software, do not hesitate to contact us via \href{http://www.evoevo.eu/contact-us/}{http://www.evoevo.eu/contact-us/} or \href{charles.rocabert@inria.fr}{charles.rocabert@inria.fr}.
+
+%==============================%
+%    INSTALLATION INSTRUCTIONS      %
+%==============================%
+\section{Installation instructions}
+
+\subsection{Requirements}
+\begin{itemize}
+	\item CMake (command line version, please do not use the GUI version)
+	\item zlib
+	\item GSL
+	\item CBLAS
+	\item SFML 2
+	\item TBB
+	\item R
+	\item R packages : ape, RColorBrewer (and dependencies)
+\end{itemize}
+
+\subsection{Supported platforms}
+The program has been successfully tested on Ubuntu 12.04 LTS, Ubunutu 14.04 LTS, OSX 10.9.5 (Maverick) and OSX 10.10.1 (Yosemite).
+
+\subsection{Installation instructions}
+To compile the project, run the following instructions on the command line:
+\begin{itemize}
+  \item[\$] \texttt{cd (/path/to/project)/cmake/}
+\end{itemize}
+(and)
+\begin{itemize}
+  \item[\$] \texttt{sh cmake\_debug.sh} to compile the software in \texttt{DEBUG} mode
+\end{itemize}
+(or)
+\begin{itemize}
+  \item[\$] \texttt{sh cmake\_release.sh} to compile the software in \texttt{RELEASE} mode
+\end{itemize}
+(or)
+\begin{itemize}
+  \item[\$] \texttt{sh cmake\_no\_graphics.sh} to compile the software without graphics
+\end{itemize}
+Binary executable files are in \texttt{build/bin} folder.
+
+\section{Typical usage}
+For a first usage, please take the following steps.
+
+\paragraph{(A)}
+First, place yourself in the examples folder:
+\begin{itemize}
+        \item[\$] \texttt{cd /path/to/project/examples}
+\end{itemize}
+
+\paragraph{(B)}
+Create a fresh simulation with the parameters file (\texttt{parameters.txt}):
+\begin{itemize}
+        \item[\$] \texttt{../build/bin/create}
+\end{itemize}
+Several folders have been created. They mainly contain simulation backups (population, environment, trees, parameters, ...).\\Parameters meaning is detailed in \texttt{doc/parameters\_description.html}.
+
+\paragraph{(C)}
+Alternatively to the \texttt{create} executable, use a bootstrap to find a simulation with good initial properties from the parameters file:
+\begin{itemize}
+        \item[\$] \texttt{../build/bin/bootstrap}
+\end{itemize}
+A fresh simulation will be automatically created if a suitable seed is found.
+
+\paragraph{(D)}
+Run the simulation:
+\begin{itemize}
+        \item[\$] \texttt{../build/bin/run -b 0 -t 10000 -g}
+\end{itemize}
+with \texttt{-b} the date of the backup, here 0 (fresh simulation), \texttt{-t} the simulation time, here 10000 time steps, \texttt{-g} display the graphic window.
+At any moment during the simulation, one can take a closer look at the evolution of the system by opening \texttt{viewer/viewer.html} in an internet browser.
+
+For more information, run any executable with the \texttt{-h} option (e.g. \texttt{create -h})
+and ultimately visit \href{www.evoevo.eu}{www.evoevo.eu}
+
+
+\section{Executables description}
+
+%================= CREATE ====================
+\subsection{\texttt{create} executable}
+Create a fresh simulation from a parameters file.
+\paragraph{Usage:}
+\begin{itemize}
+        \item[\$] \texttt{create -h} or \texttt{-{}-help}
+        \item[or]
+        \item[\$] \texttt{create [-f param-file] [options]}
+\end{itemize}
+\paragraph{Options are:}
+\begin{description}
+        \item[\texttt{-h, -{}-help}:] print this help, then exit
+        \item[\texttt{-v, -{}-version}:] print the current version, then exit
+        \item[\texttt{-f, -{}-file}:] specify parameters file (default: \texttt{parameters.txt})
+        \item[\texttt{-rs, -{}-random-seed}:] specify if the prng seed should be at random
+\end{description}
+Be aware that creating an experiment in a folder erases previous files.
+
+%================= BOOTSTRAP =========================
+\subsection{\texttt{bootstrap} executable}
+Find a viable initial population for a given parameters set, via bootstrapping.
+\paragraph{Usage:}
+\begin{itemize}
+        \item[\$] \texttt{bootstrap -h} or \texttt{-{}-help}
+        \item[or]
+        \item[\$] \texttt{bootstrap [-f param-file] [-min minimum-time] [-pop minimum-pop-size] [-t, trials] [options]}
+\end{itemize}
+\paragraph{Options are:}
+\begin{description}
+        \item[\texttt{-h, -{}-help}:] print this help, then exit
+        \item[\texttt{-v, -{}-version}:] print the current version, then exit
+        \item[\texttt{-f, -{}-file}:] specify parameters file (default: \texttt{parameters.txt})
+        \item[\texttt{-min, -{}-minimum-time}:] specify the minimum time the new population must survive (default: 100)
+        \item[\texttt{-pop, -{}-minimum-pop-size}:] specify the minimum size the new population must maintain (default: 500)
+        \item[\texttt{-t, --trials}:] specify the number of trials
+        \item[\texttt{-g, -{}-graphics}:]  activate graphic display
+\end{description}
+
+%================= RUN =========================
+\subsection{\texttt{run} executable}
+Run a simulation from a backup.
+\paragraph{Usage:}
+\begin{itemize}
+        \item[\$] \texttt{run -h} or \texttt{-{}-help}
+        \item[or]
+        \item[\$] \texttt{run [-b backup-time] [-t simulation-time] [options]}
+\end{itemize}
+\paragraph{Options are:}
+\begin{description}
+        \item[\texttt{-h, -{}-help}:] print this help, then exit
+        \item[\texttt{-v, -{}-version}:] print the current version, then exit
+        \item[\texttt{-b, -{}-backup-time}:] set the date of the backup to load (default: 0)
+        \item[\texttt{-t, -{}-simulation-time}:] set the duration of the simulation (default: 10000)
+        \item[\texttt{-g, -{}-graphics}:]  activate graphic display
+\end{description}
+Statistic files content is automatically managed when a simulation is reloaded from backup to avoid data loss.
+
+%================= EXPERIMENT =========================
+\subsection{\texttt{experiment} executable}
+Generate an experiment, containing repetitions on a specified parameters file.
+\paragraph{Usage:}
+\begin{itemize}
+        \item[\$] \texttt{experiment -h} or \texttt{-{}-help}
+        \item[or]
+        \item[\$] \texttt{experiment [-f param-file] [options]}
+\end{itemize}
+\paragraph{Options are:}
+\begin{description}
+        \item[\texttt{-h, -{}-help}:] print this help, then exit
+        \item[\texttt{-v, -{}-version}:] print the current version, then exit
+        \item[\texttt{-f, -{}-file}:] specify parameters file (default: \texttt{parameters.txt})
+        \item[\texttt{-rep, -{}-repetitions}:] specify the number of repetitions
+        \item[\texttt{-t, -{}-simulation-time}:] set the duration of the simulation (default: 10000)
+        \item[\texttt{-rs, -{}-random-seed}:] specify if the prng seed should be drawn at random for each repetition
+\end{description}
+
+%================= UNITARY TESTS =========================
+\subsection{\texttt{unitary\_tests} executable}
+Run unitary tests.
+\paragraph{Usage:}
+\begin{itemize}
+        \item[\$] \texttt{unitary\_tests -h} or \texttt{-{}-help}
+        \item[or]
+        \item[\$] \texttt{unitary\_tests [-f param-file]}
+\end{itemize}
+\paragraph{Options are:}
+\begin{description}
+        \item[\texttt{-h, -{}-help}:] print this help, then exit
+        \item[\texttt{-v, -{}-version}:] print the current version, then exit
+        \item[\texttt{-f, -{}-file}:] specify parameters file (default: \texttt{parameters.txt})
+\end{description}
+
+\end{document}

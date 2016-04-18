@@ -1,0 +1,73 @@
+
+                              README
+                            06-02-2016
+                     charles.rocabert@inria.fr
+
+
+To obtain more details on the model, see http://www.evoevo.eu/software/.
+If you have any question about the software, do not hesitate to contact us
+at charles.rocabert@inria.fr or on http://www.evoevo.eu/contact-us/ page.
+
+
+For a first usage, please take the following steps:
+
+1) Installation instructions:
+=============================
+
+Please read the INSTALL file.
+
+2) Typical usage:
+=================
+
+(A) first, place yourself in the "example" folder:
+-------------------------------------------------
+
+  $ cd (/path/to/project)/example
+
+(B) create a fresh simulation with the parameters file (parameters.txt):
+------------------------------------------------------------------------
+
+  $ ../build/bin/create
+
+Several folders have been created. They mainly contain simulation
+backups (population, environment, trees, parameters, ...). Parameters
+file is described in "doc/parameters_description.html".
+
+(C) alternatively to the create executable, use a bootstrap to find an
+----------------------------------------------------------------------
+    simulation with good initial properties from the parameters file:
+    -----------------------------------------------------------------
+
+  $ ../build/bin/bootstrap
+
+A fresh simulation will be automatically created if a suitable seed
+is found (the parameters file is also updated).
+
+(D) run a simulation on this backup:
+------------------------------------
+
+  $ ../build/bin/run -b 0 -t 10000 -g
+
+  with -b: the date of the backup, here 0 (default value: 0),
+       -t: the simulation duration, here 10000 time steps (default value: 10000),
+       -g: display graphic windows.
+
+At any moment during the simulation, one can take a closer look at the
+evolution of the system by opening "viewer/viewer.html" in an internet
+browser.
+
+(E) restart a new simulation from any backup, e.g:
+--------------------------------------------------
+
+  $ ../build/bin/run -b 10000 -t 10000 -g
+
+(F) test your own code modifications using unitary and integrated tests:
+------------------------------------------------------------------------
+
+  $ ../build/bin/unitary_tests
+  $ ../build/bin/integrated_tests
+
+Those executables must exclusively be ran in debug mode (see INSTALL file).
+
+
+To obtain more information, visit www.evoevo.eu.

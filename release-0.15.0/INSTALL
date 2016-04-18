@@ -1,0 +1,63 @@
+
+                     INSTALLATION INSTRUCTIONS
+                            06-02-2016
+                     charles.rocabert@inria.fr
+
+
+To obtain more details on the model, see http://www.evoevo.eu/software/.
+If you have any question about the software, do not hesitate to contact us
+at charles.rocabert@inria.fr or on http://www.evoevo.eu/contact-us/ page.
+
+
+The source package is displayed as following:
+  - The "src" folder contains the source code of the project,
+  - The "example" folder contains a typical parameters file (default name :
+    "parameters.txt"), used to create a new
+    simulation. Parameters are described in "doc/parameters_description.html".
+    See the "README" file for a typical usage of the software,
+  - The "doc" folder contains diverse documentation on the model,
+  - The "build" folder contains compilation products (binary executables being
+    in "build/bin" folder),
+  - The "cmake" folder contains compilation tools,
+  - The quick start instruction files (including INSTALL and README files).
+
+1) Requirements:
+================
+
+* CMake (command line version, do not use the GUI version)
+* zlib
+* GSL
+* CBLAS
+* SFML 2
+* TBB
+* R
+* R packages : ape, RColorBrewer (and dependencies)
+
+2) Supported Platforms:
+=======================
+
+This release has been successfully tested on
+Ubuntu 14.04 LTS, OSX 10.9.5 (Maverick) and OSX 10.10.1 (Yosemite).
+
+3) Download link:
+==================
+
+http://www.evoevo.eu/integrated-evolutionary-model/
+
+4) Installation instructions:
+=============================
+
+To compile the project, run the following instructions in your terminal:
+
+  $ cd (/path/to/project)/cmake/
+(and)
+  $ sh cmake_debug.sh to compile the software in DEBUG mode
+(or)
+  $ sh cmake_release.sh to compile the software in RELEASE mode
+(or)
+  $ sh cmake_no_graphics.sh to compile the software without graphics
+
+Binary executable files are in "build/bin" folder.
+
+
+To obtain more information, visit www.evoevo.eu.

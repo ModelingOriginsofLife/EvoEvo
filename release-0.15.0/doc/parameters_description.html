@@ -1,0 +1,603 @@
+
+<!--****************************************************************************
+ * Copyright (C) 2014-2016 Charles Rocabert, Carole Knibbe, Guillaume Beslon
+ * E-mail: charles.rocabert@inria.fr
+ * Web: http://www.evoevo.eu/
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ****************************************************************************-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parameters description</title>
+    <style type="text/css">
+      body
+      {
+        font-family:arial;
+        width: 90%;
+        margin: auto;
+      }
+      h1, h3
+      { 
+        text-align: center;
+      }
+      h2
+      { 
+        color:rgb(100, 100, 100);
+      }
+      table
+      {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td
+      {
+        border: 1px solid grey;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .parameter_name
+      {
+        font-size: 13px;
+      }
+      .parameter_type
+      {
+        font-size: 12px;
+        color:rgb(40, 100, 200);
+        text-align: center;
+      }
+      .parameter_domain
+      {
+        font-size: 12px;
+        text-align: center;
+      }
+      .warning
+      {
+        font-size: 12px;
+        color: rgb(255, 100, 100);
+      }
+    </style>
+  </head>
+
+  <body>
+
+  <h1>Parameters description</h1>
+  <h3>02-11-2015</h3>
+  <br />
+
+  <h2>&bull; Pseudorandom numbers generator</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>SEED</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( > 0 )</code></td>
+      <td>Set the seed of the prng</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Parallel computing</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>PARALLEL_COMPUTING</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Activate parallel computing (YES) or deactivate it (NO)</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Simulation schemes</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>STOCHASTIC_GENE_EXPRESSION</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Activate stochastic gene expression (YES) or deactivate it (NO)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENERGY_CONSTRAINTS</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Activate energy constraints (YES) or deactivate them (NO)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>MEMBRANE_PERMEABILITY</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Activate membrane permeability (YES) or deactivate it (NO)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>METABOLIC_INHERITANCE</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Activate metabolic inheritance (YES) or deactivate it (NO)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENZYMATIC_INHERITANCE</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Activate enzymatic inheritance (YES) or deactivate it (NO)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>CO_ENZYME_ACTIVITY</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Activate co-enzyme activity (YES) or deactivate it (NO)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>SELECTION_THRESHOLD</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the selection threshold</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Space</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>WIDTH</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( > 0 )</code></td>
+      <td>Set the width of the toroidal grid</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>HEIGHT</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( > 0 )</code></td>
+      <td>Set the height of the toroidal grid</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Output</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>EXPERIMENT_BACKUP_STEP</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( > 0 )</code></td>
+      <td>Set the timestep at which the experiment is saved in backup</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>TREE_BACKUP_STEP</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( > 0 )</code></td>
+      <td>Set the timestep at which trees is saved in backup</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>GENERATE_FIGURES</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Activate the generation of figures in the viewer (YES) or deactivate it (NO)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>COMPUTE_TROPHIC_NETWORK</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Compute and save the trophic network (YES or NO)</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Genome level</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>CELL_METABOLIC_RANGE</code></td>
+      <td class="parameter_type"><code>&lt;string double double&gt;</code></td>
+      <td class="parameter_domain"><code>&bull; string( "UNIFORM", "GAUSSIAN", "EXPONENTIAL")<br />&bull; double( min:>0.0, mean:any, lambda:>0.0 )<br />&bull; double( max:>min, standard_deviation:>0.0 )</code></td>
+      <td>Set the distribution law (uniform, gaussian or exponential law) used to draw initial metabolic usage. Parameters structure must be, for each law:<ul><li>UNIFORM &lt;min&gt; &lt;max&gt;</li><li>GAUSSIAN &lt;mean&gt; &lt;standard_deviation&gt;</li><li>EXPONENTIAL &lt;lambda&gt;</li></td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INITIAL_NOISE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( > 0.0 )</code></td>
+      <td>Set the initial transcriptional noise</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INITIAL_BINDING_WINDOW</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0 )</code></td>
+      <td>Set the initial binding window</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INITIAL_NUMBER_OF_NON_CODING_PEARLS</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0 )</code></td>
+      <td>Set the initial number of non coding pearls</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INITIAL_NUMBER_OF_ENZYME_PEARLS</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0 )</code></td>
+      <td>Set the initial number of enzymes</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INITIAL_NUMBER_OF_TRANSCRIPTION_FACTOR_PEARLS</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0 )</code></td>
+      <td>Set the initial number of transcription factors</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INITIAL_NUMBER_OF_BINDING_SITE_PEARLS</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0 )</code></td>
+      <td>Set the initial number of binding sites</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INITIAL_NUMBER_OF_PROMOTER_PEARLS</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0 )</code></td>
+      <td>Set the initial number of promoters</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>POINT_MUTATION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the point mutation rate</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>DUPLICATION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the duplication rate</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>DELETION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the deletion rate</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>TRANSLOCATION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the translocation rate</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INVERSION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the inversion rate</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>TRANSITION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the rate at which tuples mutate from one type to another</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>SUBSTRATE_TAG_MUTATION_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0 )</code></td>
+      <td>Set the mutation size of the substrate tag attribute (<em>s</em>)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>PRODUCT_TAG_MUTATION_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0 )</code></td>
+      <td>Set the mutation size of the product tag attribute (<em>p</em>)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>KM_MUTATION_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0.0 )</code></td>
+      <td>Set the standard deviation of the mutation size of <em>k<sub>m</sub></em> constant attribute</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>KCAT_MUTATION_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0.0 )</code></td>
+      <td>Set the standard deviation of the mutation size of <em>k<sub>cat</sub></em> constant attribute</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>BINDING_SIZE_TAG_MUTATION_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0.0 )</code></td>
+      <td>Set the mutation size of the binding site tag attribute</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>CO_ENZYME_TAG_MUTATION_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0.0 )</code></td>
+      <td>Set the mutation size of the co-enzyme tag attribute</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>AFFINITY_MUTATION_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( >= 0.0 )</code></td>
+      <td>Set the standard deviation of the mutation size of affinity attribute</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>BASAL_EXPRESSION_LEVEL_MUTATION_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0.0 )</code></td>
+      <td>Set the standard deviation of the mutation size of the basal expression level attribute</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>NOISE_MUTATION_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>int( >= 0.0 )</code></td>
+      <td>Set the standard deviation of the mutation size of the noise attribute</td>
+    </tr>
+    
+    <tr>
+      <td class="parameter_name"><code>MAXIMUM_GENOME_SIZE</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( > 0 )</code></td>
+      <td>Maximum genome size during the simulation. Individuals reaching this barrier do not reproduce</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Genetic regulation network level</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>GENETIC_REGULATION_NETWORK_TIMESTEP</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( > 0.0 )</code></td>
+      <td>Set the timestep of the ODEs solver for the genetic regulation network</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>HILL_FUNCTION_THETA</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( > 0.0 )</code></td>
+      <td>Set the theta parameter of the Hill function controlling the transcriptional level of expression</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>HILL_FUNCTION_N</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( > 0.0 )</code></td>
+      <td>Set the N parameter of the Hill function controlling the transcriptional level of expression</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>PROTEIN_DEGRADATION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( >= 0.0 )</code></td>
+      <td>Set the protein degradation rate</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Metabolic network level</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>METABOLISM_TIMESTEP</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( > 0.0 )</code></td>
+      <td>Set the timestep of the ODEs solver</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ESSENTIAL_METABOLITES_TOXICITY_THRESHOLD</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( > 0.0 )</code></td>
+      <td>Set the toxicity threshold of essential metabolites. Over-reaching this threshold is toxic for the cell.</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>NON_ESSENTIAL_METABOLITES_TOXICITY_THRESHOLD</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( > 0.0 )</code></td>
+      <td>Set the toxicity threshold of non essential metabolites. Over-reaching this threshold is toxic for the cell.</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INITIAL_METABOLITES_AMOUNT_IN_CELLS</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( >= 0.0 )</code></td>
+      <td>Set the initial metabolite concentrations in cells</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENERGY_REACTION_COST_FACTOR</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the energy differential cost when producing or consuming energy during enzymatic reaction</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENERGY_PUMPING_COST</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( real number )</code></td>
+      <td>Set the energetical cost of pumping activity</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENERGY_TRANSCRIPTION_COST</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( real number )</code></td>
+      <td>Set the energetical cost of transcription activity</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENERGY_TOXICITY_THRESHOLD</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( > 0 )</code></td>
+      <td>Set the energy toxicity upper threshold</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Cell level</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>DEATH_PROBABILITY</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the death probability (used only when VARIABLE_LIFESPAN is off)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>VARIABLE_LIFESPAN</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "YES", "NO" )</code></td>
+      <td>Activate variable lifespan (YES) or deactivate it (NO)</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>GOMPERTZ_LAW</code></td>
+      <td class="parameter_type"><code>&lt;double double double&gt;</code></td>
+      <td class="parameter_domain"><code>double( a:>0.0, b:>0.0, c:>0.0 )<br /></code></td>
+      <td>Set the Gompertz law giving the death probability when VARIABLE_LIFESPAN is on. Parameter <em>a</em> is the asymptote (usually a=1.0); parameter <em>b</em> is the inflexion point of the curve; parameter <em>c</em> is the slope.</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>INITIAL_MEMBRANE_PERMEABILITY</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the initial diffusion rate through the membrane</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Fitness level</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>SCORE_SCHEME</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "SUM", "MEAN_MINUS_DEV", "COMBINATORIAL")</code></td>
+      <td>Set the score scheme used to compute the score from the metabolic concentrations. If SUM, the score is simply the sum of essential metabolite concentrations. If MEAN_MINUS_DEV, the score is the essential metabolite concentrations mean, minus the quadratic error around the mean. If COMBINATORIAL, the score is the combination of all the essential metabolites, such that biggest complexes are built. E.g. if essential metabolites <em>2</em>, <em>3</em>, <em>5</em> and <em>7</em> are expressed with concentrations <em>C<sub>3</sub></em> &lt; <em>C<sub>2</sub></em> &lt; <em>C<sub>7</sub></em> &lt; <em>C<sub>5</sub></em>, then the score is s = 1*C<sub>3</sub>+2*(C<sub>2</sub>-C<sub>3</sub>)+3*(C<sub>7</sub>-C<sub>2</sub>)+4*(C<sub>5</sub>-C<sub>7</sub>). COMBINATORIAL score scheme represents the cell capability to produce replication protein complexes.</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Population level</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>MIGRATION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the rate at which pairs of organisms are chosen at random and locations are swapped</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>HGT_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the rate of horizontal gene transfer per generation</td>
+    </tr>
+  </table>
+
+  <h2>&bull; Environment level</h2>
+  <hr>
+
+  <table>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_INITIALIZATION_CYCLES</code></td>
+      <td class="parameter_type"><code>&lt;int&gt;</code></td>
+      <td class="parameter_domain"><code>int( > 0 )</code></td>
+      <td>Set the number of environment initialization cycles</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_SPECIES_TAG_RANGE</code></td>
+      <td class="parameter_type"><code>&lt;string double double&gt;</code></td>
+      <td class="parameter_domain"><code>&bull; string( "UNIFORM", "GAUSSIAN", "EXPONENTIAL")<br />&bull; double( min:>0.0, mean:any, lambda:>0.0 )<br />&bull; double( max:>min, standard_deviation:>0.0 )</code></td>
+      <td>Set the distribution law (uniform, gaussian or exponential law) used to draw the next species tag introduced in each environment location. Parameters structure must be, for each law:<ul><li>UNIFORM &lt;min&gt; &lt;max&gt;</li><li>GAUSSIAN &lt;mean&gt; &lt;standard_deviation&gt;</li><li>EXPONENTIAL &lt;lambda&gt;</li></td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_CONCENTRATION_RANGE</code></td>
+      <td class="parameter_type"><code>&lt;string double double&gt;</code></td>
+      <td class="parameter_domain"><code>&bull; string( "UNIFORM", "GAUSSIAN", "EXPONENTIAL")<br />&bull; double( min:>0.0, mean:any, lambda:>0.0 )<br />&bull; double( max:>min, standard_deviation:>0.0 )</code></td>
+      <td>Set the distribution law (uniform, gaussian or exponential law) used to draw the next concentration introduced in each environment location. Parameters structure must be, for each law:<ul><li>UNIFORM &lt;min&gt; &lt;max&gt;</li><li>GAUSSIAN &lt;mean&gt; &lt;standard_deviation&gt;</li><li>EXPONENTIAL &lt;lambda&gt;</li></td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_NUMBER_OF_SPECIES_RANGE</code></td>
+      <td class="parameter_type"><code>&lt;string double double&gt;</code></td>
+      <td class="parameter_domain"><code>&bull; string( "UNIFORM", "GAUSSIAN", "EXPONENTIAL")<br />&bull; double( min:>0.0, mean:any, lambda:>0.0 )<br />&bull; double( max:>min, standard_deviation:>0.0 )</code></td>
+      <td>Set the distribution law (uniform, gaussian or exponential law) used to draw the number of metabolites introduced in each environment location. Parameters structure must be, for each law:<ul><li>UNIFORM &lt;min&gt; &lt;max&gt;</li><li>GAUSSIAN &lt;mean&gt; &lt;standard_deviation&gt;</li><li>EXPONENTIAL &lt;lambda&gt;</li></td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_INTERACTION_SCHEME</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "NO_INTERACTION", "INTERACTION")</code></td>
+      <td>
+        Set the environmental interaction scheme:
+        <ul>
+          <li><code>NO_INTERACTION</code>: The environment does not interact with the population, i.e. cells uptake and release nutrients but do not modify the environment.</li>
+          <li><code>INTERACTION</code>: The environment interacts with the population, i.e. cells modify the environment by uptaking and releaseing nutrients.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_RENEWAL_SCHEME</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "KEEP_MATTER", "CLEAR_MATTER")</code></td>
+      <td>
+        Set the environmental renewal scheme:
+        <ul>
+          <li><code>KEEP_MATTER</code>: Previous environmental concentrations are maintained when fresh nutrients are introduced in the environment.</li>
+          <li><code>CLEAR_MATTER</code>: Previous environmental concentrations are cleared when fresh nutrients are introduced in the environment.</li>
+        </ul>
+        <span class="warning">WARNING: CLEAR_MATTER option is activated only if ENVIRONMENT_VARIATION_SCHEME parameter is set to PERIODIC.</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_VARIATION_SCHEME</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "RANDOM", "PERIODIC", "CYCLIC")</code></td>
+      <td>
+        Set the environmental variation scheme:
+        <ul>
+          <li><code>RANDOM</code>: Variation occurs in each grid site with a probability = introduction rate/per timestep</li>
+          <li><code>PERIODIC</code>: Variation occurs periodically, with a period = 1/(introduction rate)</li>
+          <li><code>CYCLIC</code>: Variation is cycled, introduced concentrations being weighted by a sinus like function, with a period = 1/(introduction rate)</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_VARIATION_LOCALIZATION</code></td>
+      <td class="parameter_type"><code>&lt;string&gt;</code></td>
+      <td class="parameter_domain"><code>string( "RANDOM", "GLOBAL", "CENTER")</code></td>
+      <td>
+        Set the environmental variation scheme:
+        <ul>
+          <li><code>RANDOM</code>: Variation occurs in each grid site with a probability = introduction rate/per timestep</li>
+          <li><code>GLOBAL</code>: Variation occurs in the whole environment at once</li>
+          <li><code>CENTER</code>: Variation only occurs at the center of the grid</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_INTRODUCTION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the introduction rate of fresh metabolites in the environment</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_DIFFUSION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the diffusion rate</td>
+    </tr>
+    <tr>
+      <td class="parameter_name"><code>ENVIRONMENT_DEGRADATION_RATE</code></td>
+      <td class="parameter_type"><code>&lt;double&gt;</code></td>
+      <td class="parameter_domain"><code>double( [0, 1] )</code></td>
+      <td>Set the degradation rate</td>
+    </tr>
+  </table>
+
+  <br /><br />
+
+  </body> 
+</html>

@@ -1,0 +1,223 @@
+
+<!--****************************************************************************
+ * Copyright (C) 2014-2016 Charles Rocabert, Carole Knibbe, Guillaume Beslon
+ * E-mail: charles.rocabert@inria.fr
+ * Web: http://www.evoevo.eu/
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ****************************************************************************-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Best evolution &bull; Simulation viewer</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../icons/prototype_icon_small.png" />
+    <link rel="shortcut icon" type="image/png" href="../icons/prototype_icon_small.png" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../js/dygraph-combined-dev.js"></script>
+    <script type="text/javascript" src="../js/synchronizer.js"></script>
+  </head>
+  
+  <body class="container-fluid" id="top">
+    
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="well text-center">
+          <img src="../icons/logo_EVO2SIM_small.png" width=100> Simulation viewer
+        </h2>
+      </div>
+    </div>
+    <br />
+    
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="../../viewer.html">Home</a></li>
+      <li role="presentation"><a href="./population_evolution.html">Population evolution</a></li>
+      <li role="presentation"><a href="./environment_evolution.html">Environment evolution</a></li>
+      <li role="presentation" class="active"><a href="./best_evolution.html">Best individual evolution</a></li>
+      <li role="presentation"><a href="./last_best_individual.html">Last best individual</a></li>
+      <li role="presentation"><a href="./best_lineage.html">Best lineage</a></li>
+      <li role="presentation"><a href="./phylogeny.html">Phylogeny</a></li>
+      <li role="presentation"><a href="./parameters.html">Parameters</a></li>
+    </ul>
+    
+    <!-- Content -->
+    <br /><br />
+    
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <div class="alert alert-info text-center" role="alert">
+          <h2>Best individual of each simulation time step</h2>
+          <strong>The charts are interactive:</strong> you can mouse over to highlight individual values. You can click and drag to zoom. Double-clicking will zoom you back out. Shift-drag will pan. You can change the number and hit enter to adjust the averaging period.
+        </div>
+        <div class="btn-group" role="group" aria-label="...">
+          <a type="button" class="btn btn-default" href="#phenotype">Phenotype</a>
+          <a type="button" class="btn btn-default" href="#genome_structure">Genome structure</a>
+          <a type="button" class="btn btn-default" href="#inherited_proteins">Inherited proteins</a>
+        </div>
+      </div>
+    </div>
+    
+    <hr>
+    <div class="row" id="phenotype">
+      <div class="col-md-12 text-center">
+        <h2><span class="text-primary">Phenotype evolution</span> <a type="button" class="btn btn-primary" href="#top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Top</a></h2><br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_protein_amounts_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_metabolic_amounts_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_score_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_energy_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_lifespan_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_nb_divisions_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_toxicity_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_exchanges_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_metabolic_growth_rate_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_grn_nodes_edges_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_metabolic_nodes_edges_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_regulation_redundancy_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_metabolic_redundancy_div" style="width:100%;"></div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row" id="genome_structure">
+      <div class="col-md-12 text-center">
+        <h2><span class="text-primary">Genome structure evolution</span> <a type="button" class="btn btn-primary" href="#top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Top</a></h2><br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_genome_size_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_nb_pearls_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_E_composition_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_nb_enhancers_operators_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_size_enhancers_operators_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_region_types_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_region_size_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_operon_size_div" style="width:100%;"></div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row" id="inherited_proteins">
+      <div class="col-md-12 text-center">
+        <h2><span class="text-primary">Inherited proteins evolution</span> <a type="button" class="btn btn-primary" href="#top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Top</a></h2><br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_number_inherited_proteins_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="best_inherited_E_composition_div" style="width:100%;"></div>
+      </div>
+    </div>
+
+    <br /><br /><br />
+    
+    <!-- DyGraph scripts -->
+    <script type="text/javascript" src="../js/best_protein_amounts.js"></script>
+    <script type="text/javascript" src="../js/best_metabolic_amounts.js"></script>
+    <script type="text/javascript" src="../js/best_score.js"></script>
+    <script type="text/javascript" src="../js/best_energy.js"></script>
+    <script type="text/javascript" src="../js/best_lifespan.js"></script>
+    <script type="text/javascript" src="../js/best_nb_divisions.js"></script>
+    <script type="text/javascript" src="../js/best_toxicity.js"></script>
+    <script type="text/javascript" src="../js/best_exchanges.js"></script>
+    <script type="text/javascript" src="../js/best_metabolic_growth_rate.js"></script>
+    <script type="text/javascript" src="../js/best_grn_nodes_edges.js"></script>
+    <script type="text/javascript" src="../js/best_metabolic_nodes_edges.js"></script>
+    <script type="text/javascript" src="../js/best_regulation_redundancy.js"></script>
+    <script type="text/javascript" src="../js/best_metabolic_redundancy.js"></script>
+
+    <script type="text/javascript" src="../js/best_genome_size.js"></script>
+    <script type="text/javascript" src="../js/best_nb_pearls.js"></script>
+    <script type="text/javascript" src="../js/best_E_composition.js"></script>
+    <script type="text/javascript" src="../js/best_nb_enhancers_operators.js"></script>
+    <script type="text/javascript" src="../js/best_size_enhancers_operators.js"></script>
+    <script type="text/javascript" src="../js/best_region_types.js"></script>
+    <script type="text/javascript" src="../js/best_region_size.js"></script>
+    <script type="text/javascript" src="../js/best_operon_size.js"></script>
+
+    <script type="text/javascript" src="../js/best_number_inherited_proteins.js"></script>
+    <script type="text/javascript" src="../js/best_inherited_E_composition.js"></script>
+
+    <!--
+    <script type="text/javascript">
+      var sync1 = Dygraph.synchronize(best_phenotype_1, best_phenotype_2, best_phenotype_3, best_phenotype_4, best_phenotype_5, best_phenotype_6, best_phenotype_7, best_phenotype_8, best_phenotype_9, best_phenotype_10, best_phenotype_11, best_phenotype_12, best_phenotype_13, {selection: false, zoom: true, range: false});
+      var sync2 = Dygraph.synchronize(best_genome_structure_1, best_genome_structure_2, best_genome_structure_3, best_genome_structure_4, best_genome_structure_5, best_genome_structure_6, best_genome_structure_7, best_genome_structure_8, {selection: false, zoom: true, range: false});
+      var sync4 = Dygraph.synchronize(best_inherited_proteins_1, best_inherited_proteins_2, {selection: false, zoom: true, range: false});
+    </script>
+    -->
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
+  
+</html>

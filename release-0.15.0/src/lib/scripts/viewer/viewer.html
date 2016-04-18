@@ -1,0 +1,87 @@
+
+<!--****************************************************************************
+ * Copyright (C) 2014-2016 Charles Rocabert, Carole Knibbe, Guillaume Beslon
+ * E-mail: charles.rocabert@inria.fr
+ * Web: http://www.evoevo.eu/
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ****************************************************************************-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simulation viewer</title>
+
+    <!-- Bootstrap -->
+    <link href="./src/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./src/icons/prototype_icon_small.png" />
+    <link rel="shortcut icon" type="image/png" href="./src/icons/prototype_icon_small.png" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body class="container-fluid">
+    
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="well text-center">
+          <img src="./src/icons/logo_EVO2SIM_small.png" width=100> Simulation viewer
+        </h2>
+      </div>
+    </div>
+    <br />
+    
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="viewer.html">Home</a></li>
+      <li role="presentation"><a href="./src/pages/population_evolution.html">Population evolution</a></li>
+      <li role="presentation"><a href="./src/pages/environment_evolution.html">Environment evolution</a></li>
+      <li role="presentation"><a href="./src/pages/best_evolution.html">Best individual evolution</a></li>
+      <li role="presentation"><a href="./src/pages/last_best_individual.html">Last best individual</a></li>
+      <li role="presentation"><a href="./src/pages/best_lineage.html">Best lineage</a></li>
+      <li role="presentation"><a href="./src/pages/phylogeny.html">Phylogeny</a></li>
+      <li role="presentation"><a href="./src/pages/parameters.html">Parameters</a></li>
+    </ul>
+    
+    <!-- Content -->
+    <br /><br />
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="text-center alert alert-info"><span class="glyphicon glyphicon-arrow-up"></span> Choose the data to visualize <span class="glyphicon glyphicon-arrow-up"></span></h2>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+         <img src="./src/icons/bactos.jpg" class="img-responsive">
+      </div>
+    </div>
+    
+    <br /><br /><br />
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./src/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./src/js/bootstrap.min.js"></script>
+  </body>
+  
+</html>

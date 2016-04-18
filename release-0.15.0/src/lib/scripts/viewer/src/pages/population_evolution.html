@@ -1,0 +1,307 @@
+
+<!--****************************************************************************
+ * Copyright (C) 2014-2016 Charles Rocabert, Carole Knibbe, Guillaume Beslon
+ * E-mail: charles.rocabert@inria.fr
+ * Web: http://www.evoevo.eu/
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ****************************************************************************-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Population &bull; Simulation viewer</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../icons/prototype_icon_small.png" />
+    <link rel="shortcut icon" type="image/png" href="../icons/prototype_icon_small.png" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="../js/dygraph-combined-dev.js"></script>
+    <script type="text/javascript" src="../js/synchronizer.js"></script>
+  </head>
+  
+  <body class="container-fluid" id="top">
+    
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="well text-center">
+          <img src="../icons/logo_EVO2SIM_small.png" width=100> Simulation viewer
+        </h2>
+      </div>
+    </div>
+    <br />
+    
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li role="presentation"><a href="../../viewer.html">Home</a></li>
+      <li role="presentation" class="active"><a href="./population_evolution.html">Population evolution</a></li>
+      <li role="presentation"><a href="./environment_evolution.html">Environment evolution</a></li>
+      <li role="presentation"><a href="./best_evolution.html">Best individual evolution</a></li>
+      <li role="presentation"><a href="./last_best_individual.html">Last best individual</a></li>
+      <li role="presentation"><a href="./best_lineage.html">Best lineage</a></li>
+      <li role="presentation"><a href="./phylogeny.html">Phylogeny</a></li>
+      <li role="presentation"><a href="./parameters.html">Parameters</a></li>
+    </ul>
+    
+    <!-- Content -->
+    <br /><br />
+    
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <div class="alert alert-info text-center" role="alert">
+          <h2>Evolution of the population</h2>
+          <strong>The charts are interactive:</strong> you can mouse over to highlight individual values. You can click and drag to zoom. Double-clicking will zoom you back out. Shift-drag will pan. You can change the number and hit enter to adjust the averaging period.
+        </div>
+        <div class="btn-group" role="group" aria-label="...">
+          <a type="button" class="btn btn-default" href="#population">Population</a>
+          <a type="button" class="btn btn-default" href="#phenotype">Phenotype</a>
+          <a type="button" class="btn btn-default" href="#genome_structure">Genome structure</a>
+          <a type="button" class="btn btn-default" href="#inherited_proteins">Inherited proteins</a>
+          <a type="button" class="btn btn-default" href="#trophic_network">Trophic network</a>
+        </div>
+      </div>
+    </div>
+    
+    <hr>
+    <div class="row" id="population">
+      <div class="col-md-12 text-center">
+        <h2><span class="text-primary">Population evolution</span> <a type="button" class="btn btn-primary" href="#top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Top</a></h2><br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="population_size_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="growth_rate_div" style="width:100%;"></div>
+      </div>
+    </div>
+    
+    <hr>
+    <div class="row" id="phenotype">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h2><span class="text-primary">Phenotype evolution</span> <a type="button" class="btn btn-primary" href="#top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Top</a></h2><br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_protein_amounts_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_metabolic_amounts_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_score_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_energy_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_lifespan_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_nb_divisions_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_toxicity_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_exchanges_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_metabolic_growth_rate_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_grn_nodes_edges_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_metabolic_nodes_edges_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_regulation_redundancy_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_metabolic_redundancy_div" style="width:100%;"></div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row" id="genome_structure">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h2><span class="text-primary">Genome structure evolution</span> <a type="button" class="btn btn-primary" href="#top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Top</a></h2><br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_genome_size_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_nb_pearls_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_E_composition_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_nb_enhancers_operators_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_size_enhancers_operators_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_region_types_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_region_size_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_operon_size_div" style="width:100%;"></div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row" id="inherited_proteins">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h2><span class="text-primary">Inherited proteins evolution</span> <a type="button" class="btn btn-primary" href="#top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Top</a></h2><br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_number_inherited_proteins_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="mean_inherited_E_composition_div" style="width:100%;"></div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row" id="trophic_network">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h2><span class="text-primary">Trophic network evolution</span> <a type="button" class="btn btn-primary" href="#top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> Top</a></h2><br />
+        <div class="lead text-justify">
+          <strong>The graph is interactive:</strong> you can click and drag an empty place to move. You can scroll to zoom in or out. You can click and drag a node to move it.
+          <ul>
+            <li><strong>Black rectangle</strong> represents the environment, i.e. the exogenous nutrients.</li>
+            <li><span class="text-info"><strong>Blue rectangles</strong></span> are the <strong>Level 0</strong> trophic groups. Level 0 groups are primary consumers : they only uptake exogenous nutrients. Each group gathers one or more cells together.</li>
+            <li><span class="text-success"><strong>Green rectangles</strong></span> are the <strong>Level 1</strong> trophic groups. Level 1 groups are secondary consumers : they uptake exogenous nutrients, and also nutrients produced by other groups. Each group gathers one or more cells together.</li>
+            <li><span class="text-warning"><strong>Orange rectangles</strong></span> are the <strong>Level 2</strong> trophic groups. Level 2 groups are secondary consumers : they only uptake nutrients produced by other groups. Each group gathers one or more cells together.</li>
+            <li><span class="text-muted"><strong>Grey rectangles</strong></span> are the trophic groups that not belong to any level (<strong>No level</strong>). No level groups do not uptake anything. Each group clusterize one or more cells.</li>
+          </ul>
+          <strong>Black edges</strong> show necrophagy activity. <span class="text-info"><strong>Blue edges</strong></span> show uptake activity linked to an active release of the prey.
+          <br />
+          The name of each node is displayed as following:
+          <ul>
+            <li>Trophic group names represent the uptaken nutrients, followed by the number of cells belonging to this group, and its lifespan. For example, "1-2 (20, 50)" is the trophic group uptaking nutrients 1 and 2, gathering 20 cells together, and with a lifespan of 50.</li>
+            <li>The environment name represents the list of the exogenous nutrients. For example, "ENV (1-2)" indicates that the environment displays exogenous nutrients 1 and 2.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div id="trophic_network_graph" style="border: 1px solid rgb(220, 200, 200); width: 100%; height: 0; padding-bottom: 85%;"></div>
+        <br />
+      </div>
+      <br />
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="trophic_network_nb_groups_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="trophic_network_nb_cells_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="trophic_network_group_events_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="trophic_network_group_lifespan_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-lg-offset-1 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="trophic_network_true_diversity_div" style="width:100%;"></div>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 thumbnail">
+        <div id="trophic_network_time_distance_div" style="width:100%;"></div>
+      </div>
+    </div>
+    
+    <br /><br /><br />
+    
+    <!-- DyGraph scripts -->
+    <script type="text/javascript" src="../js/population_size.js"></script>
+    <script type="text/javascript" src="../js/growth_rate.js"></script>
+    
+    <script type="text/javascript" src="../js/mean_protein_amounts.js"></script>
+    <script type="text/javascript" src="../js/mean_metabolic_amounts.js"></script>
+    <script type="text/javascript" src="../js/mean_score.js"></script>
+    <script type="text/javascript" src="../js/mean_energy.js"></script>
+    <script type="text/javascript" src="../js/mean_lifespan.js"></script>
+    <script type="text/javascript" src="../js/mean_nb_divisions.js"></script>
+    <script type="text/javascript" src="../js/mean_toxicity.js"></script>
+    <script type="text/javascript" src="../js/mean_exchanges.js"></script>
+    <script type="text/javascript" src="../js/mean_metabolic_growth_rate.js"></script>
+    <script type="text/javascript" src="../js/mean_grn_nodes_edges.js"></script>
+    <script type="text/javascript" src="../js/mean_metabolic_nodes_edges.js"></script>
+    <script type="text/javascript" src="../js/mean_regulation_redundancy.js"></script>
+    <script type="text/javascript" src="../js/mean_metabolic_redundancy.js"></script>
+
+    <script type="text/javascript" src="../js/mean_genome_size.js"></script>
+    <script type="text/javascript" src="../js/mean_nb_pearls.js"></script>
+    <script type="text/javascript" src="../js/mean_E_composition.js"></script>
+    <script type="text/javascript" src="../js/mean_nb_enhancers_operators.js"></script>
+    <script type="text/javascript" src="../js/mean_size_enhancers_operators.js"></script>
+    <script type="text/javascript" src="../js/mean_region_types.js"></script>
+    <script type="text/javascript" src="../js/mean_region_size.js"></script>
+    <script type="text/javascript" src="../js/mean_operon_size.js"></script>
+
+    <script type="text/javascript" src="../js/mean_number_inherited_proteins.js"></script>
+    <script type="text/javascript" src="../js/mean_inherited_E_composition.js"></script>
+
+    <script type="text/javascript" src="../js/trophic_network_nb_groups.js"></script>
+    <script type="text/javascript" src="../js/trophic_network_nb_cells.js"></script>
+    <script type="text/javascript" src="../js/trophic_network_group_events.js"></script>
+    <script type="text/javascript" src="../js/trophic_network_group_lifespan.js"></script>
+    <script type="text/javascript" src="../js/trophic_network_true_diversity.js"></script>
+    <script type="text/javascript" src="../js/trophic_network_time_distance.js"></script>
+    
+    <!--
+    <script type="text/javascript">
+      var sync1 = Dygraph.synchronize(population_1, population_2, {selection: false, zoom: true, range: false});
+      var sync2 = Dygraph.synchronize(mean_phenotype_1, mean_phenotype_2, mean_phenotype_3, mean_phenotype_4, mean_phenotype_5, mean_phenotype_6, mean_phenotype_7, mean_phenotype_8, mean_phenotype_9, mean_phenotype_10, mean_phenotype_11, mean_phenotype_12, mean_phenotype_13, {selection: false, zoom: true, range: false});
+      var sync3 = Dygraph.synchronize(mean_genome_structure_1, mean_genome_structure_2, mean_genome_structure_3, mean_genome_structure_4, mean_genome_structure_5, mean_genome_structure_6, mean_genome_structure_7, mean_genome_structure_8, {selection: false, zoom: true, range: false});
+      var sync4 = Dygraph.synchronize(mean_inherited_proteins_1, mean_inherited_proteins_2, {selection: false, zoom: true, range: false});
+      var sync5 = Dygraph.synchronize(trophic_network_1, trophic_network_2, trophic_network_3, trophic_network_4, {selection: false, zoom: true, range: false});
+    </script>
+    -->
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Include the cytoscape plugin -->
+    <script src="../js/cytoscape.min.js"></script>
+    <!-- Include the networks -->
+    <script src="../js/trophic_network_graph.js"></script>
+  </body>
+  
+</html>
